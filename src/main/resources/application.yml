@@ -1,0 +1,19 @@
+server:
+  port: 80
+spring:
+  profiles:
+    active: dev
+    include: druid,mybatisplus,shiro
+  redis:
+    host: 39.96.201.193
+    port: 6379
+    password: kaiserblog
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://39.96.201.193:3306/blog?useUnicode=true&characterEncoding=UTF-8&useSSL=false&tinyIntlisBit=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL
+    username: root
+    password: Kaiser@2019
+logging:
+  path: ./logs
+  level:
+    com.kaiser.blog.mapper: debug
