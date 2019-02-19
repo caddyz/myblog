@@ -39,6 +39,7 @@ public class UserController {
             return new JsonData("登陆","用户未注册",null,false);
         }else {
             boolean user = UserUtil.judgeUser(loginData.getPassword(), one.getUPwd(), one.getUSalt());
+
             return user? new JsonData("登陆","登陆成功",null,user):new JsonData("登陆","用户名或密码错误",null,user);
         }
     }
