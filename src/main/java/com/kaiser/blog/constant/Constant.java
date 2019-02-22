@@ -12,4 +12,5 @@ public class Constant {
 //    public final static String CROS_STATUS = "OPTIONS";
     public final static String SECRET_TYPE = "MD5";
     public final static String JWT_SECRET = "kaiser's secret";
+    public final static long JWT_TTLMILLS = 30000;
 }

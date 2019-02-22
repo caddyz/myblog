@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.kaiser.blog.constant.Constant;
 import com.kaiser.blog.entity.ForeRegister;
 import com.kaiser.blog.entity.LoginData;
+import com.kaiser.blog.entity.ToBrowserUser;
 import com.kaiser.blog.entity.User;
 import com.kaiser.blog.service.UserService;
 import com.kaiser.blog.util.*;
@@ -37,11 +38,8 @@ public class UserController {
         User one = userService.getOne(new QueryWrapper<User>().eq("u_name", loginData.getName()));
         if(one == null){
             return new JsonData("登陆","用户未注册",null,false);
-        }else {
-            boolean user = UserUtil.judgeUser(loginData.getPassword(), one.getUPwd(), one.getUSalt());
-
-            return user? new JsonData("登陆","登陆成功",null,user):new JsonData("登陆","用户名或密码错误",null,user);
         }
+        return userService.login(loginData,one);
     }
     @PostMapping("/register")
     @ResponseBody
